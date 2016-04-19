@@ -218,7 +218,7 @@ class TokenBucket
      */
     private function getTokens($microtime)
     {
-        $delta = bcsub(microtime(true), $microtime, $this->bcScale);
+        $delta = round(microtime(true) - $microtime, $this->bcScale);
         return $this->secondToTokenConverter->convert($delta);
     }
 }
